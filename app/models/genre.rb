@@ -1,3 +1,3 @@
 class Genre < ApplicationRecord
-  belongs_to :movie
+  has_many :movie, dependent: :destroy
 end

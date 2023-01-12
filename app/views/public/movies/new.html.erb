@@ -1,2 +1,55 @@
-<h1>Public::Movies#new</h1>
-<p>Find me in app/views/public/movies/new.html.erb</p>
+<h4>映画新規投稿</h4>
+
+<div class= "container">
+  <div class= "row">
+    <div class= "col-md-8">
+      
+      <%= form_with model: @movie,url: public_movies_path,method: :post do |f| %>
+      <div class="form-group">
+        <div calss="form-inline">
+          <div class= "row pt-2">
+          <%= f.label :title, "作品名", :class => "col-md-3 col-form-label" %>
+          <%= f.file_field :title, :class => "form-control col-md-3", placeholder: "作品名"  %>
+          </div>
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <div calss="form-inline">
+          <div class="row pt-2">
+          <%= f.label :genre, "ジャンル", :class => "col-md-3 col-form-label" %>
+          <%= f.select :genre_id, options_from_collection_for_select(Genre.all, :id, :name) %>
+          </div>
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <div calss="form-inline">
+          <div class= "row pt-2">
+          <%= f.label :date, "製作年", :class => "col-md-3 col-form-label" %>
+          <%= f.file_field :date, :class => "form-control col-md-3", placeholder: "製作年"  %>
+          </div>
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <div calss="form-inline">
+          <div class= "row pt-2">
+          <%= f.label :director, "監督", :class => "col-md-3 col-form-label" %>
+          <%= f.file_field :director, :class => "form-control col-md-3", placeholder: "監督名"  %>
+          </div>
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <div calss="form-inline">
+          <div class= "row pt-2">
+          <%= f.label :watch, "視聴方法", :class => "col-md-3 col-form-label" %>
+          <%= f.file_field :watch, :class => "form-control col-md-3", placeholder: "視聴方法"  %>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</div>
