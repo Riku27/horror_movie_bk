@@ -7,6 +7,7 @@ class CreateMovies < ActiveRecord::Migration[6.1]
       t.string :director, null: false
       t.string :watch, null: false
       t.float :rate, null: false
+      t.integer :overall, null: false
       t.timestamps
     end
   end

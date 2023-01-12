@@ -11,14 +11,14 @@ class Public::UsersController < ApplicationController
   end
 
   def update
-    @user = User.find(params[:id])
+    @user = current_user
     @user.update(user_params)
-    redirect_to my_page_public_users_path
+    redirect_to my_page_public_users_path(current_user)
   end
 
   private
   def user_params
-    params.require(:user).permit(:name, :email, :image)
+    params.require(:user).permit(:name, :email, :profile_image)
   end
 
 end

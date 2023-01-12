@@ -11,4 +11,10 @@ class Public::MoviesController < ApplicationController
 
   def edit
   end
+  
+  private
+  def movie_params
+    params.require(:movie).permit(:title, :year, :director, :watch, :overall)
+  end
+  
 end

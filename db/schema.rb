@@ -70,6 +70,7 @@ ActiveRecord::Schema.define(version: 2023_01_11_045702) do
     t.string "director", null: false
     t.string "watch", null: false
     t.float "rate", null: false
+    t.integer "overall", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
