@@ -1,2 +1,39 @@
-<h1>Public::Movies#show</h1>
-<p>Find me in app/views/public/movies/show.html.erb</p>
+<h4>映画詳細</h4>
+
+<div class="container">
+  <div class="row m-5">
+    <div class="col-md-8">
+      <table class="table">
+
+         <tbody>
+          <tr>
+            <td>タイトル</td>
+            <td><%= @movie.title %></td>
+          </tr>
+          <tr>
+            <td>ジャンル</td>
+            <td><%= @movie.genre.name %></td>
+          </tr>
+          <tr>
+            <td>監督</td>
+            <td><%= @movie.director %></td>
+          </tr>
+          <tr>
+            <td>鑑賞方法</td>
+            <td><%= @movie.watch %></td>
+          </tr>
+          <tr>
+            <td>面白さ</td>
+            <td><%= @movie.rate %></td>
+          </tr>
+          <tr>
+            <td>鑑賞日</td>
+            <td><%= @movie.year %></td>
+          </tr>
+          </tbody>
+          
+
+      </table>
+    </div>
+  </div>
+</div>
