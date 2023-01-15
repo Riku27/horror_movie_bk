@@ -25,7 +25,9 @@ Rails.application.routes.draw do
   end
 
   namespace :public do
-    resources :movies, only: [:index, :show, :new, :edit, :create, :update, :destroy]
+    resources :movies, only: [:index, :show, :new, :edit, :create, :update, :destroy] do
+    resources :comments, only: [:create]
+  end
     resource :users,only: [] 
     get '/my_page' => 'users#show'
     get '/information/edit' => 'users#edit'

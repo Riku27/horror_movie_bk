@@ -1,4 +1,10 @@
-<h4>映画詳細</h4>
+<div class="container">
+  <div class="row py-4">
+    <div clsss="offset-1">
+      <h1>映画詳細</h1>
+    </div>
+  </div>
+</div>
 
 <div class="container">
   <div class="row m-5">
@@ -31,9 +37,23 @@
             <td><%= @movie.year %></td>
           </tr>
           </tbody>
-          
-
       </table>
+          <div>
+            <p>コメント件数：<%= @movie.comments.count %></p>
+            <% @movie.comments.each do |comment| %>
+            <%= comment.user.name %>
+            <%= comment.created_at.strftime('%Y/%m/%d') %><%= comment.comment %>
+            <% end %>
+          </div>
+          <div>
+            <%= form_with model: [@movie, @comment], url: public_movie_path, method: :patch, local: true do |f| %>
+            <%= f.text_area :comment, placeholder: "コメントをここに",size: "30x3" %>
+            <tr><%= f.submit "コメント送信する", class: 'btn btn-light' %></tr>
+            <% end %>
+          </div>
+
+
+
     </div>
   </div>
 </div>

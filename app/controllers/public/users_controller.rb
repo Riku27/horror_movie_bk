@@ -1,5 +1,6 @@
 class Public::UsersController < ApplicationController
 
+  before_action :is_matching_login_user, only: [:edit, :update]
   before_action :authenticate_user!
 
   def index
@@ -8,7 +9,8 @@ class Public::UsersController < ApplicationController
 
   def show
     @user = current_user
-    @movies = Movie.all
+    #@movies = Movie.all
+    @movies = @user.movies
   end
 
   def edit
@@ -18,7 +20,7 @@ class Public::UsersController < ApplicationController
   def update
     @user = current_user
     @user.update(user_params)
-    redirect_to my_page_public_users_path(current_user)
+    redirect_to public_my_page_path(current_user)
   end
 
 
@@ -26,5 +28,12 @@ class Public::UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:name, :email, :profile_image)
   end
+
+  #def is_matching_login_user
+    #@movie = Movie.find(params[:id])
+    #unless @movie.user == current_user
+      #redirect_to movies_path
+    #end
+  #end
 
 end

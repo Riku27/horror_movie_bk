@@ -2,10 +2,16 @@ class Public::MoviesController < ApplicationController
 
   def index
     @movies = Movie.all
+    @genres = Genre.all
+    if params[:genre_id].present?
+      @genre = Genre.find(params[:genre_id])
+      @movies = @genre.movie
+    end
   end
 
   def show
     @movie = Movie.find(params[:id])
+    @comment = Comment.new
   end
 
   def new
@@ -15,7 +21,6 @@ class Public::MoviesController < ApplicationController
   def create
     @movie = Movie.new(movie_params)
     @movie.user_id = current_user.id
-
     if @movie.save
       redirect_to '/public/my_page'
     else
@@ -31,8 +36,8 @@ class Public::MoviesController < ApplicationController
 
   def destroy
     @movie = Movie.find(params[:id])
-    @movie.destroy
-    redirect_to '/public'
+    @movie.delete
+    redirect_to '/public/my_page'
   end
 
   def edit
@@ -43,5 +48,12 @@ class Public::MoviesController < ApplicationController
   def movie_params
     params.require(:movie).permit(:title, :year, :director, :watch, :rate, :genre_id)
   end
+
+  #def is_matching_login_user
+    #@movie = Movie.find(params[:id])
+    #unless @movie.user == current_user
+      #redirect_to movies_path
+    #end
+  #end
 
 end
