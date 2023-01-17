@@ -26,9 +26,10 @@ Rails.application.routes.draw do
 
   namespace :public do
     resources :movies, only: [:index, :show, :new, :edit, :create, :update, :destroy] do
-    resources :comments, only: [:create]
+    resources :comments, only: [:create, :destroy]
+
   end
-    resource :users,only: [] 
+    resource :users,only: []
     get '/my_page' => 'users#show'
     get '/information/edit' => 'users#edit'
     patch 'users/information' => 'users#update'
@@ -37,7 +38,7 @@ Rails.application.routes.draw do
   end
 
 
-  
+
 
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
