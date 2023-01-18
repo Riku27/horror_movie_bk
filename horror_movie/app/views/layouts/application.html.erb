@@ -16,7 +16,7 @@
         <div class= "container">
           <%= link_to root_path, class: "navbar-brand p-3, btn btn-light" do %>
             <i class="fas fa-film"></i>
-            Genre Horror
+            ジャンル一覧
           <% end %>
           <div>
             <ul class= "navbar-nav ml-auto">
@@ -28,56 +28,56 @@
                 </p>
                 <li class= "nav-item pl-3">
                   <%= link_to public_my_page_path, class: 'nav-link text-dark' do %>
-                    <button type= "button" class= "btn btn-light">マイページ</button>
+                    <button type= "button" class= "btn btn-light"><i class="fas fa-user-tie"></i>マイページ</button>
                   <% end %>
                 </li>
                 <li class= "nav-item pl-3">
                   <%= link_to about_path, class: 'nav-link text-dark' do %>
-                    <button type= "button" class= "btn btn-light">About</button>
+                    <button type= "button" class= "btn btn-light"><i class="fas fa-question-circle"></i>About</button>
                   <% end %>
                 </li>
                 <li class= "nav-item pl-3">
                   <%= link_to destroy_user_session_path, method: :delete, class: 'nav-link text-dark' do %>
-                    <button type= "button" class= "btn btn-light">ログアウト</button>
+                    <button type= "button" class= "btn btn-light"><i class="fas fa-sign-out-alt"></i>ログアウト</button>
                   <% end %>
                 </li>
 
               <% elsif admin_signed_in? %>
                 <li class= "nav-item pl-3">
                   <%= link_to admin_movies_path, class: 'nav-link text-dark' do %>
-                    <button type= "button" class= "btn btn-light">映画一覧</button>
+                    <button type= "button" class= "btn btn-light"><i class="far fa-file-video"></i>映画一覧</button>
                   <% end %>
                 </li>
                 <li class= "nav-item pl-3">
                   <%= link_to admin_genres_path, class: 'nav-link text-dark' do %>
-                  <button type= "button" class= "btn btn-light">ジャンル一覧</button>
+                  <button type= "button" class= "btn btn-light"><i class="fab fa-optin-monster"></i>ジャンル一覧</button>
                 <% end %>
                 </li>
                 <li class= "nav-item pl-3">
                   <%= link_to admin_users_path, class: 'nav-link text-dark' do %>
-                    <button type= "button" class= "btn btn-light">会員一覧</button>
+                    <button type= "button" class= "btn btn-light"><i class="fas fa-users"></i>会員一覧</button>
                   <% end %>
                 </li>
                 <li class= "nav-item pl-3">
                   <%= link_to destroy_admin_session_path, method: :delete, class: 'nav-link text-dark' do %>
-                    <button type= "button" class= "btn btn-light">ログアウト</button>
+                    <button type= "button" class= "btn btn-light"><i class="fas fa-sign-out-alt"></i>ログアウト</button>
                   <% end %>
                 </li>
 
               <% else %>
                 <li class= "nav-item pl-3">
                   <%= link_to about_path, class: 'nav-link text-dark' do %>
-                    <button type= "button" class= "btn btn-light">About</button>
+                    <button type= "button" class= "btn btn-light"><i class="fas fa-question-circle"></i>About</button>
                   <% end %>
                 </li>
                 <li class= "nav-item pl-3">
                   <%= link_to new_user_registration_path, class: 'nav-link text-dark' do %>
-                    <button type= "button" class= "btn btn-light">新規登録</button>
+                    <button type= "button" class= "btn btn-light"><i class="fas fa-user-plus"></i>新規登録</button>
                   <% end %>
                 </li>
                 <li class= "nav-item pl-3">
                   <%= link_to new_user_session_path, class: 'nav-link text-dark' do %>
-                    <button type= "button" class= "btn btn-light">ログイン</button>
+                    <button type= "button" class= "btn btn-light"><i class="fas fa-sign-in-alt"></i>ログイン</button>
                   <% end %>
                 </li>
               <% end %>
