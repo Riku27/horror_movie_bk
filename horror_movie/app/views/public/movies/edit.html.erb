@@ -23,7 +23,7 @@
       <div class="form-group">
         <div calss="form-inline">
           <div class="row pt-2">
-          <%= f.label :genre, "ジャンル", :class => "col-md-3 col-form-label" %>
+          <%= f.label :genre, "ジャンル", :class => "col-md-3 col-form-label"%>
           <%= f.select :genre_id, options_from_collection_for_select(Genre.all, :id, :name) %>
           </div>
         </div>
@@ -50,7 +50,7 @@
 
       <div class="position-static">
       <div class="field" id="star">
-        <%= f.label :rate, "面白さ" %>
+        <%= f.label :rate, "面白さ", :class => "col-3" %>
         <%= f.hidden_field :rate, id: :review_star %>
       </div>
       </div>
@@ -61,6 +61,24 @@
             starOff: "<%= asset_path('star-off.png') %>",
             starHalf: "<%= asset_path('star-half.png') %>",
             scoreName: 'movie[rate]',
+            half: true,
+           };
+            raty(elem,opt);
+          </script>
+          
+      <div class="position-static">
+      <div class="field" id="horror">
+        <%= f.label :rate_horror, "怖さ", :class => "col-3" %>
+        <%= f.hidden_field :rate_horror, id: :review_horror %>
+      </div>
+      </div>
+          <script>
+            var elem = document.getElementById('horror');
+            var opt = {
+            starOn: "<%= asset_path('star-on.png') %>",
+            starOff: "<%= asset_path('star-off.png') %>",
+            starHalf: "<%= asset_path('star-half.png') %>",
+            scoreName: 'movie[rate_horror]',
             half: true,
            };
             raty(elem,opt);

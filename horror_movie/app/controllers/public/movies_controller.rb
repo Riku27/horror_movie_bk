@@ -46,7 +46,7 @@ class Public::MoviesController < ApplicationController
 
   private
   def movie_params
-    params.require(:movie).permit(:title, :year, :director, :watch, :rate, :genre_id)
+    params.require(:movie).permit(:title, :year, :director, :watch, :rate, :rate_horror, :genre_id)
   end
 
   #def is_matching_login_user
