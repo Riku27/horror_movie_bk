@@ -1,11 +1,11 @@
 class Public::MoviesController < ApplicationController
 
   def index
-    @movies = Movie.all
+    @movies = Movie.page(params[:page])
     @genres = Genre.all
     if params[:genre_id].present?
       @genre = Genre.find(params[:genre_id])
-      @movies = @genre.movie
+      @movies = @genre.movie.page(params[:page])
     end
   end
 
