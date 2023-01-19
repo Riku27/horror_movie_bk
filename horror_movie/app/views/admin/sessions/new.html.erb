@@ -1,5 +1,12 @@
-<h2>Log in</h2>
+<div class="container">
+  <div class="row py-4">
+    <div clsss="offset-1">
+      <h2>管理者ログイン画面</h2>
+    </div>
+  </div>
+</div>
 
+<div class="container">
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
     <%= f.label :email %><br />
@@ -19,8 +26,9 @@
   <% end %>
 
   <div class="actions">
-    <%= f.submit "Log in" %>
+    <%= f.submit "Log in", class: "btn btn-primary" %>
   </div>
 <% end %>
 
 <%= render "admin/shared/links" %>
+</div>

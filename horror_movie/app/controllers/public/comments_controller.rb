@@ -1,11 +1,16 @@
 class Public::CommentsController < ApplicationController
 
   def create
-    movie = Movie.find(params[:movie_id])
+    @movie = Movie.find(params[:movie_id])
     comment = current_user.comments.new(comment_params)
-    comment.movie_id = movie.id
-    comment.save
-    redirect_to public_movie_path(movie.id)
+    comment.movie_id = @movie.id
+    if comment.save
+       render :create
+    else
+      # @movie = Movie.find(params[:movie_id])
+       @comment = Comment.new
+       render 'public/movies/show'
+    end
   end
 
   def destroy

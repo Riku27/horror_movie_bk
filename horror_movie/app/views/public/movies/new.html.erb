@@ -7,7 +7,7 @@
 </div>
 
 <% if @movie.errors.any? %>
-  <%= @movie.errors.count %>error has occurred
+  <%= @movie.errors.count %> error has occurred
   <ul>
     <% @movie.errors.full_messages.each do |message| %>
       <li><%= message %></li>
