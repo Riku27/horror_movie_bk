@@ -20,8 +20,9 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :users, only: [:index, :show, :edit, :update]
-    resources :movies, only: [:index, :show,]
+    resources :movies, only: [:index, :show, :destroy]
     resources :genres, only: [:index, :edit, :create, :update, :destroy]
+    resources :comments, only: [:destroy]
   end
 
   namespace :public do

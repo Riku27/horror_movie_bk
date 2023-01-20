@@ -17,6 +17,8 @@
           <th>面白さ</th>
           <th>怖さ</th>
           <th>投稿ユーザー</th>
+          <th>投稿日</th>
+          <th>コメント数</th>
         </tr>
         <tbody>
           <% @movies.each do |movie| %>
@@ -26,6 +28,8 @@
             <td><%= movie.rate %></td>
             <td><%= movie.rate_horror %></td>
             <td><%= movie.user.name %></td>
+            <td><%= movie.created_at.strftime("%Y-%m-%d") %></td>
+            <td><%= movie.comments.count %>コメント</td>
           </tr>
           <% end %>
         </tbody>

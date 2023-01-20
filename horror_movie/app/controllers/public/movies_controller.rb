@@ -1,15 +1,17 @@
 class Public::MoviesController < ApplicationController
+before_action :authenticate_user!
 
   def index
-    @movies = Movie.page(params[:page])
+    @movies = Movie.page(params[:page]).order(created_at: :desc)
     @genres = Genre.all
     if params[:genre_id].present?
       @genre = Genre.find(params[:genre_id])
-      @movies = @genre.movie.page(params[:page])
+      @movies = @genre.movie.page(params[:page]).order(created_at: :desc)
     end
   end
 
   def show
+    @comments = Comment.page(params[:page])
     @movie = Movie.find(params[:id])
     @comment = Comment.new
   end

@@ -10,7 +10,7 @@ class Public::UsersController < ApplicationController
   def show
     @user = current_user
     #@movies = Movie.all
-    @movies = @user.movies
+    @movies = @user.movies.page(params[:page]).order(created_at: :desc)
   end
 
   def edit

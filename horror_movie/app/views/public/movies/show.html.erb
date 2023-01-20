@@ -49,13 +49,13 @@
           </tr>
           </tbody>
       </table>
-        <p>コメント件数：<%= @movie.comments.count %></p>
           <div class="new-comment">
             <%= render partial: 'public/comments/form' %>
           </div>
     </div>
           <div class="col-md-7">
             <div id="comments-area"><%= render partial: 'public/comments/index', locals: {movie: @movie} %></div>
+            <div class="d-flex justify-content-center"><%= paginate @comments %></div>
           </div>
   </div>
 </div>
